@@ -139,6 +139,19 @@ Transform:
   m_Father: {fileID: 2742268169908491397}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &900499494153462040
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8557541708058882966}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7009384, y: 1.08, z: 0.5449301}
+  m_Center: {x: -0.039247274, y: 0.54, z: 0.050628126}
 --- !u!1001 &1355189666395846795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -513,6 +526,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Xmas_Present_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1467314771253136, guid: dc0ef716b82f13a41904934f9f710ac4, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 4490428844985270, guid: dc0ef716b82f13a41904934f9f710ac4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1
@@ -559,6 +576,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc0ef716b82f13a41904934f9f710ac4, type: 3}
+--- !u!1 &8557541708058882966 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1467314771253136, guid: dc0ef716b82f13a41904934f9f710ac4,
+    type: 3}
+  m_PrefabInstance: {fileID: 8558889143206585350}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8559298149455720368 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4490428844985270, guid: dc0ef716b82f13a41904934f9f710ac4,

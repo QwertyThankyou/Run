@@ -78,6 +78,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   begin: {fileID: 1670848454048755628}
   end: {fileID: 2164004646364066272}
+--- !u!65 &1852277388855579838
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6805188017485326149}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.080358475, y: 0.1, z: 0.2854861}
+  m_Center: {x: 0, y: 0.05, z: -0.0011081547}
 --- !u!1 &7342098197255420606
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,6 +478,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Stapler_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1189128982105882, guid: 719da362dc42e4843ab0ee1ce98a98cc, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 4927961570680828, guid: 719da362dc42e4843ab0ee1ce98a98cc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.5
@@ -523,6 +540,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 719da362dc42e4843ab0ee1ce98a98cc, type: 3}
+--- !u!1 &6805188017485326149 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1189128982105882, guid: 719da362dc42e4843ab0ee1ce98a98cc,
+    type: 3}
+  m_PrefabInstance: {fileID: 6806306777368832095}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6801941800866297763 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4927961570680828, guid: 719da362dc42e4843ab0ee1ce98a98cc,
