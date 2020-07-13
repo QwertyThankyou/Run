@@ -155,7 +155,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4754829491773874, guid: 9a2c40d136d14114694284b7c1db6ea1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.25
+      value: -2.51
       objectReference: {fileID: 0}
     - target: {fileID: 4754829491773874, guid: 9a2c40d136d14114694284b7c1db6ea1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -163,23 +163,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4754829491773874, guid: 9a2c40d136d14114694284b7c1db6ea1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.5
+      value: 1.89
       objectReference: {fileID: 0}
     - target: {fileID: 4754829491773874, guid: 9a2c40d136d14114694284b7c1db6ea1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4754829491773874, guid: 9a2c40d136d14114694284b7c1db6ea1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.130526
+      value: 0.078459114
       objectReference: {fileID: 0}
     - target: {fileID: 4754829491773874, guid: 9a2c40d136d14114694284b7c1db6ea1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4754829491773874, guid: 9a2c40d136d14114694284b7c1db6ea1, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9914449
+      value: 0.99691737
       objectReference: {fileID: 0}
     - target: {fileID: 4754829491773874, guid: 9a2c40d136d14114694284b7c1db6ea1, type: 3}
       propertyPath: m_RootOrder
@@ -191,7 +191,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4754829491773874, guid: 9a2c40d136d14114694284b7c1db6ea1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 15.000001
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4754829491773874, guid: 9a2c40d136d14114694284b7c1db6ea1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z

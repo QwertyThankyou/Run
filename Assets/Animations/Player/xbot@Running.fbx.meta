@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b0ec77cfb6543c647858e5387e07cf40
+guid: 53ee588e2d7b9f343a97ff25191d1acf
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -141,7 +141,6 @@ ModelImporter:
     400134: //RootNode
     7400000: Running
     9500000: //RootNode
-    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -185,7 +184,7 @@ ModelImporter:
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
