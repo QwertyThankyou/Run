@@ -1,47 +1,70 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using DefaultNamespace;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    public Text text;
+    public PlayerController player;
+
+    public Text currentScoreText;
+    public Text maxScoreText;
+
+    private float maxScore;
+    private float currentScore = 0;
+
     private void Awake()
     {
         if (!PlayerPrefs.HasKey("MaxScore"))
             PlayerPrefs.SetFloat("MaxScore", 0);
 
-        Helper.MaxScore = PlayerPrefs.GetFloat("MaxScore");
+        maxScore = PlayerPrefs.GetFloat("MaxScore");
+    }
 
-        text.text = Helper.CurrentScore.ToString();
+    private void Start()
+    {
+        player.onScoreChange.AddListener(delegate {  });
+        player.onDeath.AddListener(delegate {  });
+
+        player.speedWalk = 0f;
     }
     
     void Update()
     {
-        if (Helper.CurrentScore > Helper.MaxScore)
-            SetMaxScore();
+        if (currentScore > maxScore)
+            maxScore = currentScore;
+        maxScoreText.text = maxScore.ToString();
     }
 
-    private void FixedUpdate()
+    public void ScoreChange()
     {
-        if (!Helper.Lose)
-        { 
-            Helper.CurrentScore += 1f;
-            text.text = Helper.CurrentScore.ToString();
-        }
+        currentScore++;
+        currentScoreText.text = currentScore.ToString();
     }
 
-    private void SetMaxScore()
+    public void ScoreReset()
     {
-        Helper.MaxScore = Helper.CurrentScore;
+        maxScore = 0;
+        if (!PlayerPrefs.HasKey("MaxScore"))
+            PlayerPrefs.SetFloat("MaxScore", 0);
+    }
+
+    public void StartButton()
+    {
+        player.speedWalk = 6f;
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(0);
     }
 
     private void OnDisable()
     {
-        PlayerPrefs.SetFloat("MaxScore", Helper.MaxScore);
+        PlayerPrefs.SetFloat("MaxScore", maxScore);
         PlayerPrefs.Save();
     }
 }

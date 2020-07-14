@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using DefaultNamespace;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -11,9 +11,12 @@ public class PlayerController : MonoBehaviour
     public float forceJump = 7; // req 7
     public float speedWalk = 6; // req 6
 
-    public Animation roll;
+    public UnityEvent onScoreChange;
+    public UnityEvent onDeath;
 
     private int _jumpQuantity = 0; // считает колличетво прыжков
+
+    private float _forceJumpLose = 5f;
 
     private float _startPos; // Позиция начала касания
     private float _endPos; // Позиция конца касания
@@ -30,7 +33,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _rigid;
     private Animator _animator;
     private CapsuleCollider _capsuleCollider;
-
+    
     private void Awake()
     {
         _rigid = GetComponent<Rigidbody>();
@@ -66,7 +69,7 @@ public class PlayerController : MonoBehaviour
         _rigid.velocity = new Vector2(speedWalk, _rigid.velocity.y);
     }
     
-    IEnumerator DoJump()
+    private IEnumerator DoJump()
     {
         _animator.SetBool("Jump", true);
         _rigid.velocity = new Vector2(_rigid.velocity.x, 0);
@@ -75,9 +78,11 @@ public class PlayerController : MonoBehaviour
         _animator.SetBool("Jump", false);
         _jumpQuantity = 0;
         _isJump = false;
+        
+        onScoreChange.Invoke();
     }
 
-    IEnumerator DoRoll()
+    private IEnumerator DoRoll()
     {
         _isRoll = true;
         _capsuleCollider.height = _ccRollH;
@@ -88,15 +93,18 @@ public class PlayerController : MonoBehaviour
         _animator.SetBool("Roll", false);
         _capsuleCollider.height = _ccNormalH;
         _capsuleCollider.center = _ccNormalP;
+        
+        onScoreChange.Invoke();
     }
 
     private void OnCollisionEnter(Collision other)              // Проигрыш
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Helper.Lose = true;
+            _rigid.AddForce(Vector2.up * _forceJumpLose, ForceMode.Impulse);
             speedWalk = 0f;
             _animator.SetBool("Lose", true);
+            onDeath.Invoke();
         }
     }
 }
