@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 _ccNormalP = new Vector3(0f, 0.9f, 0f);
     private float _ccNormalH = 2f;
     
-    private Vector3 _ccRollP = new Vector3(0f, 0.13f, 0f);
+    private Vector3 _ccRollP = new Vector3(0f, 0.15f, 0f);
     private float _ccRollH = 0.5f;
 
     private Rigidbody _rigid;
@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
         _capsuleCollider.height = _ccRollH;
         _capsuleCollider.center = _ccRollP;
         _animator.SetBool("Roll", true);
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.8f);
         _isRoll = false;
         _animator.SetBool("Roll", false);
         _capsuleCollider.height = _ccNormalH;
