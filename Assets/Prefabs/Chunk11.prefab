@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2018583253471390773
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3676136509311750725}
+  - component: {fileID: 1751291308191860306}
+  m_Layer: 0
+  m_Name: BoxCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3676136509311750725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018583253471390773}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3652483989795736102}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1751291308191860306
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018583253471390773}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 0.01, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2095600966955358899
 GameObject:
   m_ObjectHideFlags: 0
@@ -24,7 +68,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2095600966955358899}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.5, y: 0, z: 3}
+  m_LocalPosition: {x: 5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3652483989795736102}
@@ -41,7 +85,6 @@ GameObject:
   - component: {fileID: 3652483989276538185}
   - component: {fileID: 3672978336797063095}
   - component: {fileID: 6566541691726434258}
-  - component: {fileID: 3652483989276538184}
   m_Layer: 0
   m_Name: SM_Env_Driveway_01
   m_TagString: Untagged
@@ -57,7 +100,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3652483989276538183}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2.5, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -3}
   m_LocalScale: {x: 1.2000004, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3652483989795736102}
@@ -108,19 +151,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &3652483989276538184
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3652483989276538183}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5.000006, y: 0.040686265, z: 5.000008}
-  m_Center: {x: -2.4999945, y: -0.009486012, z: -2.499997}
 --- !u!1 &3652483989792682407
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,7 +162,6 @@ GameObject:
   - component: {fileID: 3652483989792682409}
   - component: {fileID: 5797411980378410252}
   - component: {fileID: 4047025805790068559}
-  - component: {fileID: 3652483989792682408}
   m_Layer: 0
   m_Name: SM_Env_Driveway_01
   m_TagString: Untagged
@@ -148,7 +177,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3652483989792682407}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 7.5, y: 0, z: 0}
+  m_LocalPosition: {x: 5, y: 0, z: -3}
   m_LocalScale: {x: 1.2000004, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3652483989795736102}
@@ -199,19 +228,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &3652483989792682408
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3652483989792682407}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5.000006, y: 0.040686265, z: 5.000008}
-  m_Center: {x: -2.4999945, y: -0.009486012, z: -2.499997}
 --- !u!1 &3652483989795736101
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,6 +260,7 @@ Transform:
   - {fileID: 3652483989792682409}
   - {fileID: 3638572044765565496}
   - {fileID: 4468662867914677785}
+  - {fileID: 3676136509311750725}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -285,7 +302,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5345716340168875028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.5, y: 0, z: 3}
+  m_LocalPosition: {x: -5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3652483989795736102}
