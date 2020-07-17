@@ -431,7 +431,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: SM_Prop_DeskToy_NewtownsCradle_01_Ball_02
+    path: SM_Prop_DeskToy_NewtownsCradle_01_Ball_05
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -441,17 +441,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: SM_Prop_DeskToy_NewtownsCradle_01_Ball_02
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: SM_Prop_DeskToy_NewtownsCradle_01_Ball_02
+    path: SM_Prop_DeskToy_NewtownsCradle_01_Ball_05
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -470,8 +460,18 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: SM_Prop_DeskToy_NewtownsCradle_01_Ball_02
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: SM_Prop_DeskToy_NewtownsCradle_01_Ball_05
+    path: SM_Prop_DeskToy_NewtownsCradle_01_Ball_02
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -481,7 +481,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: SM_Prop_DeskToy_NewtownsCradle_01_Ball_05
+    path: SM_Prop_DeskToy_NewtownsCradle_01_Ball_02
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0
