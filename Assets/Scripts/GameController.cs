@@ -16,6 +16,8 @@ public class GameController : MonoBehaviour
     private float maxScore;
     private float currentScore = 0;
 
+    private bool _speedCh = false;
+
     private void Awake()
     {
         if (!PlayerPrefs.HasKey("MaxScore"))
@@ -37,6 +39,17 @@ public class GameController : MonoBehaviour
         if (currentScore > maxScore)
             maxScore = currentScore;
         maxScoreText.text = maxScore.ToString();
+
+        if (currentScore % 10 == 0 && currentScore != 0 && _speedCh == false) StartCoroutine(SpeedUp());
+    }
+
+    private IEnumerator SpeedUp()
+    {
+        _speedCh = true;
+        if (player.speedWalk <= 8f) 
+            player.speedWalk += 0.2f;
+        yield return new WaitForSeconds(5f);
+        _speedCh = false;
     }
 
     public void ScoreChange()
@@ -55,11 +68,12 @@ public class GameController : MonoBehaviour
     public void StartButton()
     {
         player.speedWalk = 6f;
+        player.isDeath = false;
     }
 
     public void Restart()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
 
     private void OnDisable()

@@ -26,14 +26,16 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 _ccNormalP = new Vector3(0f, 0.9f, 0f);
     private float _ccNormalH = 2f;
-    
+
     private Vector3 _ccRollP = new Vector3(0f, 0.15f, 0f);
     private float _ccRollH = 0.5f;
 
     private Rigidbody _rigid;
     private Animator _animator;
     private CapsuleCollider _capsuleCollider;
-    
+
+    [NonSerialized]public bool isDeath = true;
+
     private void Awake()
     {
         _rigid = GetComponent<Rigidbody>();
@@ -53,7 +55,7 @@ public class PlayerController : MonoBehaviour
                 if (_startPos < _endPos && _isRoll != true)
                 {
                     _isJump = true;
-                    
+
                     _jumpQuantity++;
                     if (_jumpQuantity <= 1)
                     {
@@ -66,44 +68,58 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+
         _rigid.velocity = new Vector2(speedWalk, _rigid.velocity.y);
     }
-    
+
     private IEnumerator DoJump()
     {
-        _animator.SetBool("Jump", true);
-        _rigid.velocity = new Vector2(_rigid.velocity.x, 0);
-        _rigid.AddForce(Vector2.up * forceJump, ForceMode.Impulse);
-        yield return new WaitForSeconds(1.1f);                      // req 1.1f
-        _animator.SetBool("Jump", false);
-        _jumpQuantity = 0;
-        _isJump = false;
-        
-        onScoreChange.Invoke();
+        if (!isDeath)
+        {
+            _animator.SetBool("Jump", true);
+            _rigid.velocity = new Vector2(_rigid.velocity.x, 0);
+            _rigid.AddForce(Vector2.up * forceJump, ForceMode.Impulse);
+            
+            FindObjectOfType<AudioManager>().Play("Jump");
+            
+            yield return new WaitForSeconds(1.1f); // req 1.1f
+            _animator.SetBool("Jump", false);
+            _jumpQuantity = 0;
+            _isJump = false;
+
+            onScoreChange.Invoke();
+        }
     }
 
     private IEnumerator DoRoll()
     {
-        _isRoll = true;
-        _capsuleCollider.height = _ccRollH;
-        _capsuleCollider.center = _ccRollP;
-        _animator.SetBool("Roll", true);
-        yield return new WaitForSeconds(0.8f);
-        _isRoll = false;
-        _animator.SetBool("Roll", false);
-        _capsuleCollider.height = _ccNormalH;
-        _capsuleCollider.center = _ccNormalP;
-        
-        onScoreChange.Invoke();
+        if (!isDeath)
+        {
+            _isRoll = true;
+            _capsuleCollider.height = _ccRollH;
+            _capsuleCollider.center = _ccRollP;
+            _animator.SetBool("Roll", true);
+            
+            FindObjectOfType<AudioManager>().Play("Roll");
+            
+            yield return new WaitForSeconds(0.8f);
+            _isRoll = false;
+            _animator.SetBool("Roll", false);
+            _capsuleCollider.height = _ccNormalH;
+            _capsuleCollider.center = _ccNormalP;
+
+            onScoreChange.Invoke();
+        }
     }
 
-    private void OnCollisionEnter(Collision other)              // Проигрыш
+    private void OnCollisionEnter(Collision other) // Проигрыш
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
             _rigid.AddForce(Vector2.up * _forceJumpLose, ForceMode.Impulse);
             speedWalk = 0f;
             _animator.SetBool("Lose", true);
+            isDeath = true;
             onDeath.Invoke();
         }
     }
