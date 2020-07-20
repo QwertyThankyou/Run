@@ -172,7 +172,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Hit On Legs
       takeName: mixamo.com
-      firstFrame: 17
+      firstFrame: 0
       lastFrame: 122
       wrapMode: 0
       orientationOffsetY: 0

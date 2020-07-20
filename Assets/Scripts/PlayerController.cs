@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     private float _ccRollH = 0.5f;
 
     private Rigidbody _rigid;
-    private Animator _animator;
+    [NonSerialized]public Animator _animator;
     private CapsuleCollider _capsuleCollider;
 
     [NonSerialized]public bool isDeath = true;
@@ -116,6 +116,8 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
+            FindObjectOfType<AudioManager>().Stop("MainTheme");
+            FindObjectOfType<AudioManager>().Play("Lose");
             _rigid.AddForce(Vector2.up * _forceJumpLose, ForceMode.Impulse);
             speedWalk = 0f;
             _animator.SetBool("Lose", true);

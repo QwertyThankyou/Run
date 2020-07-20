@@ -172,7 +172,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Hit To Head
       takeName: mixamo.com
-      firstFrame: 0
+      firstFrame: 17
       lastFrame: 76
       wrapMode: 0
       orientationOffsetY: 0

@@ -31,6 +31,8 @@ public class GameController : MonoBehaviour
         player.onScoreChange.AddListener(delegate {  });
         player.onDeath.AddListener(delegate {  });
 
+        FindObjectOfType<AudioManager>().Play("MainTheme");
+
         player.speedWalk = 0f;
     }
     
@@ -46,8 +48,8 @@ public class GameController : MonoBehaviour
     private IEnumerator SpeedUp()
     {
         _speedCh = true;
-        if (player.speedWalk <= 8f) 
-            player.speedWalk += 0.2f;
+        if (player.speedWalk <= 8.2f) 
+            player.speedWalk += 0.1f;
         yield return new WaitForSeconds(5f);
         _speedCh = false;
     }
@@ -67,6 +69,7 @@ public class GameController : MonoBehaviour
 
     public void StartButton()
     {
+        player._animator.SetTrigger("Run");
         player.speedWalk = 6f;
         player.isDeath = false;
     }
