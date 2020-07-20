@@ -59,7 +59,7 @@ public class GameController : MonoBehaviour
     {
         _speedCh = true;
         if (player.speedWalk <= 8.2f)
-            player.speedWalk += 0.1f;
+            player.speedWalk += 0.2f;
         yield return new WaitForSeconds(5f);
         _speedCh = false;
     }
