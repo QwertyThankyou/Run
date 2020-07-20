@@ -15,6 +15,10 @@ public class GameController : MonoBehaviour
     public Text currentScoreText;
     public Text maxScoreText;
     
+    [Header("Volume button")]
+    public Sprite volumeOn;
+    public Sprite volumeOff;
+    public Button volume;
 
     private float _maxScore;
     private float _currentScore = 0;
@@ -38,6 +42,8 @@ public class GameController : MonoBehaviour
             audioManager.Play("MainTheme");
 
         player.speedWalk = 0f;
+        
+        VolumeImageSwitch();
     }
     
     void Update()
@@ -84,12 +90,20 @@ public class GameController : MonoBehaviour
         {
             PlayerPrefs.SetInt("Volume", 0);
             audioManager.Stop("MainTheme");
+            VolumeImageSwitch();
         }
         else
         {
             PlayerPrefs.SetInt("Volume", 1);
             audioManager.Play("MainTheme");
+            VolumeImageSwitch();
         }
+    }
+
+    private void VolumeImageSwitch()
+    {
+        if (PlayerPrefs.GetInt("Volume") == 0) volume.image.sprite = volumeOff;
+        else volume.image.sprite = volumeOn;
     }
 
     public void Restart()
