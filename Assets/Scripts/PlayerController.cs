@@ -14,9 +14,11 @@ public class PlayerController : MonoBehaviour
     public UnityEvent onScoreChange;
     public UnityEvent onDeath;
 
+    public AudioManager audioManager;
+   
     private int _jumpQuantity = 0; // считает колличетво прыжков
 
-    private float _forceJumpLose = 5f;
+    private float _forceJumpLose = 5f; // Сила прыжка при проигрыше
 
     private float _startPos; // Позиция начала касания
     private float _endPos; // Позиция конца касания
@@ -31,15 +33,17 @@ public class PlayerController : MonoBehaviour
     private float _ccRollH = 0.5f;
 
     private Rigidbody _rigid;
-    [NonSerialized]public Animator _animator;
+    [NonSerialized]public Animator animator;
     private CapsuleCollider _capsuleCollider;
 
     [NonSerialized]public bool isDeath = true;
 
+    
+
     private void Awake()
     {
         _rigid = GetComponent<Rigidbody>();
-        _animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         _capsuleCollider = GetComponent<CapsuleCollider>();
     }
 
@@ -76,14 +80,14 @@ public class PlayerController : MonoBehaviour
     {
         if (!isDeath)
         {
-            _animator.SetBool("Jump", true);
+            animator.SetBool("Jump", true);
             _rigid.velocity = new Vector2(_rigid.velocity.x, 0);
             _rigid.AddForce(Vector2.up * forceJump, ForceMode.Impulse);
             
-            FindObjectOfType<AudioManager>().Play("Jump");
+            if (PlayerPrefs.GetInt("Volume") == 1) audioManager.Play("Jump");
             
             yield return new WaitForSeconds(1.1f); // req 1.1f
-            _animator.SetBool("Jump", false);
+            animator.SetBool("Jump", false);
             _jumpQuantity = 0;
             _isJump = false;
 
@@ -98,13 +102,13 @@ public class PlayerController : MonoBehaviour
             _isRoll = true;
             _capsuleCollider.height = _ccRollH;
             _capsuleCollider.center = _ccRollP;
-            _animator.SetBool("Roll", true);
+            animator.SetBool("Roll", true);
             
-            FindObjectOfType<AudioManager>().Play("Roll");
+            if (PlayerPrefs.GetInt("Volume") == 1) audioManager.Play("Roll");
             
             yield return new WaitForSeconds(0.8f);
             _isRoll = false;
-            _animator.SetBool("Roll", false);
+            animator.SetBool("Roll", false);
             _capsuleCollider.height = _ccNormalH;
             _capsuleCollider.center = _ccNormalP;
 
@@ -116,12 +120,19 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            FindObjectOfType<AudioManager>().Stop("MainTheme");
-            FindObjectOfType<AudioManager>().Play("Lose");
-            _rigid.AddForce(Vector2.up * _forceJumpLose, ForceMode.Impulse);
-            speedWalk = 0f;
-            _animator.SetBool("Lose", true);
+            other.collider.isTrigger = true;
+            
             isDeath = true;
+            
+            if (PlayerPrefs.GetInt("Volume") == 1)
+            {
+                audioManager.Stop("MainTheme");
+                audioManager.Play("Lose");
+            }
+                
+            speedWalk = 0f;
+            _rigid.AddForce(Vector2.up * _forceJumpLose, ForceMode.Impulse);
+            animator.SetBool("Lose", true);
             onDeath.Invoke();
         }
     }

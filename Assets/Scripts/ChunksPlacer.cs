@@ -41,7 +41,7 @@ public class ChunksPlacer : MonoBehaviour
         newChunk.transform.position = _spawnedChunks[_spawnedChunks.Count - 1].end.position - newChunk.begin.localPosition;
         _spawnedChunks.Add(newChunk);
 
-        if (_spawnedChunks.Count >= 5)
+        if (_spawnedChunks.Count >= 3)
         {
             Destroy(_spawnedChunks[0].gameObject);
             _spawnedChunks.RemoveAt(0);
