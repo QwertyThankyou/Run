@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
@@ -135,5 +133,10 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Lose", true);
             onDeath.Invoke();
         }
+    }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
     }
 }

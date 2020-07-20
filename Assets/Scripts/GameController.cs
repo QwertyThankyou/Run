@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
+﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -20,6 +16,9 @@ public class GameController : MonoBehaviour
     public Sprite volumeOff;
     public Button volume;
 
+    public GameObject mockery;
+    public GameObject mainMenu;
+
     private float _maxScore;
     private float _currentScore = 0;
 
@@ -34,7 +33,7 @@ public class GameController : MonoBehaviour
             PlayerPrefs.SetInt("Volume", 1);
 
         _maxScore = PlayerPrefs.GetFloat("MaxScore");
-
+    
         player.onScoreChange.AddListener(delegate { });
         player.onDeath.AddListener(delegate { });
 
@@ -108,11 +107,12 @@ public class GameController : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene(0, LoadSceneMode.Single);
+        SceneManager.LoadScene(1, LoadSceneMode.Single);
     }
 
     private void OnDisable()
     {
+        StopAllCoroutines();
         PlayerPrefs.SetFloat("MaxScore", _maxScore);
         PlayerPrefs.Save();
     }
