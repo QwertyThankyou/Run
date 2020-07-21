@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
+﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -20,6 +16,9 @@ public class GameController : MonoBehaviour
     public Sprite volumeOff;
     public Button volume;
 
+    public GameObject mockery;
+    public GameObject mainMenu;
+
     private float _maxScore;
     private float _currentScore = 0;
 
@@ -34,7 +33,7 @@ public class GameController : MonoBehaviour
             PlayerPrefs.SetInt("Volume", 1);
 
         _maxScore = PlayerPrefs.GetFloat("MaxScore");
-
+    
         player.onScoreChange.AddListener(delegate { });
         player.onDeath.AddListener(delegate { });
 
@@ -52,13 +51,13 @@ public class GameController : MonoBehaviour
             _maxScore = _currentScore;
         maxScoreText.text = _maxScore.ToString();
 
-        if (_currentScore % 10 == 0 && _currentScore != 0 && _speedCh == false) StartCoroutine(SpeedUp());
+        if (_currentScore % 5 == 0 && _currentScore != 0 && _speedCh == false) StartCoroutine(SpeedUp());
     }
 
     private IEnumerator SpeedUp()
     {
         _speedCh = true;
-        if (player.speedWalk <= 8.2f)
+        if (player.speedWalk <= 8.3f)
             player.speedWalk += 0.2f;
         yield return new WaitForSeconds(5f);
         _speedCh = false;
@@ -108,11 +107,12 @@ public class GameController : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene(0, LoadSceneMode.Single);
+        SceneManager.LoadScene(1, LoadSceneMode.Single);
     }
 
     private void OnDisable()
     {
+        StopAllCoroutines();
         PlayerPrefs.SetFloat("MaxScore", _maxScore);
         PlayerPrefs.Save();
     }
