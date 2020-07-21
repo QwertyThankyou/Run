@@ -16,9 +16,6 @@ public class GameController : MonoBehaviour
     public Sprite volumeOff;
     public Button volume;
 
-    public GameObject mockery;
-    public GameObject mainMenu;
-
     private float _maxScore;
     private float _currentScore = 0;
 
