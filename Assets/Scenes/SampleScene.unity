@@ -221,7 +221,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d575919d2faea114db069d6d2995d8d8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 13606506fa511964eaa43439e78299a9, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -693,7 +693,7 @@ PrefabInstance:
     - target: {fileID: 8920568759859864203, guid: ce1e3d8ba5f6fb24681269c348bcc5b7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.5
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8920568759859864203, guid: ce1e3d8ba5f6fb24681269c348bcc5b7,
         type: 3}
@@ -743,7 +743,7 @@ PrefabInstance:
     - target: {fileID: 8920568759859864203, guid: ce1e3d8ba5f6fb24681269c348bcc5b7,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 12
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce1e3d8ba5f6fb24681269c348bcc5b7, type: 3}
@@ -938,7 +938,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e06db4fe03b02a545aec513bdba1732b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d92be85e68b977b44a5bda7ef72c1159, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1105,6 +1105,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3075483125372113528, guid: 8e35fabed85c4164caf67f26f2cc3456,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2f834016e53f12c42a12baecd4450e34, type: 2}
+    - target: {fileID: 3075483126488349008, guid: 8e35fabed85c4164caf67f26f2cc3456,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2f834016e53f12c42a12baecd4450e34, type: 2}
     - target: {fileID: 3075483126824314177, guid: 8e35fabed85c4164caf67f26f2cc3456,
         type: 3}
       propertyPath: m_Name
@@ -1164,6 +1174,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3601895432791476434, guid: 8e35fabed85c4164caf67f26f2cc3456,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e35fabed85c4164caf67f26f2cc3456, type: 3}
@@ -1817,7 +1832,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.4601792, y: 0.1559669}
   m_AnchorMax: {x: 0.7488033, y: 0.2487345}
-  m_AnchoredPosition: {x: -4, y: 0.3257141}
+  m_AnchoredPosition: {x: -4, y: 0.32421875}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1393200074
@@ -2408,9 +2423,17 @@ MonoBehaviour:
   player: {fileID: 1695691560}
   chunkPrefabs:
   - {fileID: 3075483126824314178, guid: 8e35fabed85c4164caf67f26f2cc3456, type: 3}
+  - {fileID: 5986243261832999880, guid: 31767cf6f5fbb4743a09c02a4954296b, type: 3}
   - {fileID: 6526815212742053255, guid: 90d0774f6a7231b4d851413be68ff0fb, type: 3}
+  - {fileID: 7761389642236680863, guid: 174f5a4f808d5ea478c7d3264a02570f, type: 3}
   - {fileID: 6138878582819761704, guid: cb8eac4f859325a40803809fdde16c0e, type: 3}
+  - {fileID: 3239777635643045811, guid: ef351f45be3f45b47802547ead6c2925, type: 3}
   - {fileID: 8657144279976205378, guid: 3c712d6fe1064454f98385f6d14420c9, type: 3}
+  - {fileID: 4687992466339963823, guid: 834c7912c6e622541a230a7caf13cb41, type: 3}
+  - {fileID: 2253002800789136590, guid: 472031d5c99086549a4f3c5196993ba1, type: 3}
+  - {fileID: 3519939822012034979, guid: 63dfbee2ee8c33d4cb6d8ebfa10ffc64, type: 3}
+  - {fileID: 2383295156317777756, guid: 679480752db6f17449fcc97f39e9e3a0, type: 3}
+  - {fileID: 4822261067743303518, guid: 960376e8ac9306f4d94c713a236fbb29, type: 3}
   firstChunk: {fileID: 2105902587}
 --- !u!4 &1549213765
 Transform:
@@ -3133,7 +3156,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 534669904}
   m_PlaneDistance: 1
-  m_PixelPerfect: 1
+  m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0

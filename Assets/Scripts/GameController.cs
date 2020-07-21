@@ -51,14 +51,14 @@ public class GameController : MonoBehaviour
             _maxScore = _currentScore;
         maxScoreText.text = _maxScore.ToString();
 
-        if (_currentScore % 10 == 0 && _currentScore != 0 && _speedCh == false) StartCoroutine(SpeedUp());
+        if (_currentScore % 5 == 0 && _currentScore != 0 && _speedCh == false) StartCoroutine(SpeedUp());
     }
 
     private IEnumerator SpeedUp()
     {
         _speedCh = true;
-        if (player.speedWalk <= 8.2f)
-            player.speedWalk += 0.1f;
+        if (player.speedWalk <= 8.3f)
+            player.speedWalk += 0.2f;
         yield return new WaitForSeconds(5f);
         _speedCh = false;
     }
